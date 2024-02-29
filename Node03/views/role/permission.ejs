@@ -1,0 +1,18 @@
+<h1>Lựa chọn role cho người dùng</h1>
+<form action="" method="post" class="form-control">
+  <% roles?.forEach((role, index) => { %>
+  <label class="d-block my-1 mb-3">
+    <input
+      type="checkbox"
+      id="<%= role.name  %>"
+      class="form-check-input"
+      name="<%= role.name  %>"
+    />
+      <%= role.name %></label
+    >
+  </label>
+  <% }) %>
+
+  <button type="submit" class="btn btn-success">Save</button>
+  <a href="/users" class="btn btn-danger">Cancel</a>
+</form>

@@ -1,0 +1,61 @@
+<h1>Emails</h1>
+<a href="emails/send" class="btn btn-primary mb-2">SEND EMAIL</a>
+<form action="" class="mb-3">
+  <div class="row">
+    <div class="col-3">
+      <select name="status" class="form-select">
+        <option value="all">Tất cả</option>
+        <option value="active">Đã gửi</option>
+        <option value="inactive">Nháp</option>
+      </select>
+    </div>
+    <div class="col-7">
+      <input
+        type="search"
+        class="form-control"
+        name="keyword"
+        placeholder="Từ khóa..."
+      />
+    </div>
+    <div class="col-2 d-grid">
+      <button class="btn btn-primary">Tìm kiếm</button>
+    </div>
+  </div>
+</form>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th width="5%">STT</th>
+      <th>To</th>
+      <th>Tiêu đề</th>
+      <th>Trạng thái</th>
+      <th>Thời gian</th>
+      <th width="5%">Xem</th>
+      <th width="5%">Xóa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% emails?.forEach((email, index) => { %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= email.to %></td>
+      <td><%= email.subject %></td>
+      <td><%= email.status ? 'Sent': 'Read' %></td>
+      <td><%= email.created_at %></td>
+      <td>
+        <a href="/emails/detail/<%= email.id %>" class="btn btn-warning">Xem</a>
+      </td>
+      <td>
+        <form
+          action="/emails/delete/<%= email.id  %>"
+          method="post"
+          onsubmit="return confirm('Bạn có chắc chắn')"
+        >
+          <button class="btn btn-danger">Xóa</button>
+        </form>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

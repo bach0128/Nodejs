@@ -1,0 +1,28 @@
+<form action="" method="post" class="form-control">
+  <label for="url">Liên kết</label>
+  <input
+    class="form-control input-sm mb-3"
+    type="text"
+    placeholder="Liên kết của bạn"
+    name="url"
+    value=" <%= url.url  %>"
+  />
+  <label for="customer_url">Liên kết rút gọn</label>
+  <input
+    class="form-control input-sm mb-3"
+    type="text"
+    placeholder="Rút gọn liên kết của bạn"
+    name="customer_url"
+    value="<%= url.customer_url  %> "
+  />
+  <label for="password">Mật khẩu</label>
+  <input
+    class="form-control input-sm mb-3"
+    type="text"
+    placeholder="Nhập mật khẩu"
+    name="password"
+    visible="true"
+    value="<%= url.password  %>"
+  />
+  <button type="submit" class="btn btn-success">Save</button>
+</form>

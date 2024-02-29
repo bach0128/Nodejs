@@ -1,0 +1,61 @@
+<h1>Thêm vai trò</h1>
+<form action="" method="post">
+  <div class="mb-3">
+    <label for="name">Tên</label>
+    <input type="text" name="name" class="form-control" placeholder="Tên..." />
+  </div>
+  <div>
+    <p>Quyền</p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th width="20%">Chức năng</th>
+          <th>Quyền</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Quản lý người dùng</td>
+          <td>
+            <input type="checkbox" name="user_read" />
+            <label for="user_read">Xem</label>
+          </td>
+          <td>
+            <input type="checkbox" name="user_create" />
+            <label for="user_create">Thêm</label>
+          </td>
+          <td>
+            <input type="checkbox" name="user_edit" />
+            <label for="user_edit">Sửa</label>
+          </td>
+          <td>
+            <input type="checkbox" name="user_delete" />
+            <label for="user_delete">Xóa</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Quản lý vai trò</td>
+          <td>
+            <input type="checkbox" name="role_read" />
+            <label for="role_read">Xem</label>
+          </td>
+          <td>
+            <input type="checkbox" name="role_create" />
+            <label for="role_create">Thêm</label>
+          </td>
+          <td>
+            <input type="checkbox" name="role_edit" />
+            <label for="role_edit">Sửa</label>
+          </td>
+          <td>
+            <input type="checkbox" name="role_delete" />
+            <label for="role_delete">Xóa</label>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button class="btn btn-primary">Save</button>
+  <a href="/role" class="btn btn-danger">Cancel</a>
+</form>

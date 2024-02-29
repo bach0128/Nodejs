@@ -1,0 +1,13 @@
+<h1>Reset yourlife</h1>
+<form action="" method="post" class="container p-4">
+  <input
+    class="form-control mb-3"
+    type="text"
+    name="email"
+    placeholder="Vui lòng nhập email"
+  />
+  <% if (locals.message) { %>
+  <span><%= message?.error %></span>
+  <% } %>
+  <button class="btn btn-info">Send</button>
+</form>

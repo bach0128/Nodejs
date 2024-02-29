@@ -1,0 +1,42 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="py-5">
+      <div class="row d-flex justify-content-center">
+        <div class="d-flex col-12 flex-column w-50">
+          <a
+            class="btn btn-outline-success mb-3"
+            href="<%= body.url  %>"
+            target="_blank"
+            >Nhấn vào đây để tiếp tục</a
+          >
+          <a
+            href="https://www.facebook.com/sharer/sharer.php?u=<%= body.url %>&t=f8.short.dev"
+            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+            target="_blank"
+            title="Share"
+            class="btn btn-outline-success mb-3"
+          >
+            Share on Facebook
+          </a>
+          <a
+            class="btn btn-outline-success mb-3"
+            href="http://chart.apis.google.com/chart?cht=qr&chs=500x500&choe=UTF-8&chld=H&chl=<%= body.url %>"
+            target="_blank"
+            >Tạo QR code</a
+          >
+          <a class="btn btn-outline-success" href="/urls"
+            >Rút gọn liên kết mới</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

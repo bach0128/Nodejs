@@ -1,0 +1,33 @@
+<div class="p-4 w-50 mx-auto">
+  <h1 class="text-center">Login</h1>
+  <% if (error.length) { %>
+  <div class="alert alert-danger text-center mb-2"><%= error %></div>
+  <% } %>
+  <form action="" method="post">
+    <div class="mb-3">
+      <label for="">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        name="email"
+        placeholder="Email..."
+      />
+    </div>
+    <div class="mb-3">
+      <label for="">Password</label>
+      <input
+        type="text"
+        class="form-control"
+        name="password"
+        placeholder="Password..."
+      />
+    </div>
+    <div class="d-grid">
+      <a href="/auth/reset" class="text-center mb-3">Forgot password?</a>
+      <button class="btn btn-success w-100">Login</button>
+      <a href="/auth/google/redirect" class="btn btn-danger mt-2"
+        >Login with Google</a
+      >
+    </div>
+  </form>
+</div>

@@ -1,0 +1,175 @@
+<h1>Rút gọn liên kết</h1>
+<p>Công cụ rút gọn liên kết miễn phí nhanh nhất</p>
+
+<div class="">
+  <div class="row">
+    <div class="col-9">
+      <table class="table text-center table-bordered">
+        <thead>
+          <tr>
+            <th width="5%">STT</th>
+            <th>Liên kết rút gọn</th>
+            <th>Liên kết gốc</th>
+            <th>Mật khẩu</th>
+            <th>Lượt truy cập</th>
+            <!-- <th>Thời gian tạo</th> -->
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% urls?.forEach((url, index) => { %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td>
+              <a
+                href="<%= url.url %>"
+                target="_blank"
+                class="text-decoration-none"
+              >
+                <%= url.customer_url %>
+              </a>
+            </td>
+            <td>
+              <a
+                href="<%= url.url %>"
+                target="_blank"
+                class="text-decoration-none"
+              >
+                <%= url.url %></a
+              >
+            </td>
+            <td>
+              <div>
+                <!-- Button trigger modal -->
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#passwordsModal<%= url.id  %>"
+                >
+                  Xem
+                </button>
+
+                <!-- Modal -->
+                <div
+                  class="modal fade w-100"
+                  id="passwordsModal<%= url.id  %>"
+                  data-bs-backdrop="static"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="staticBackdropLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                          Mật khẩu để mở được liên kết
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <i class="fa-solid fa-xmark"></i>
+                        </button>
+                      </div>
+                      <div class="modal-body"><%= url.password %></div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td><%= url.count ? null : 0 %></td>
+            <!-- <td><%= url.created_at %></td> -->
+            <td class="d-flex">
+              <a
+                href="https://www.facebook.com/sharer/sharer.php?u=<%= url.url %>&t=f8.short.dev"
+                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                target="_blank"
+                title="Share"
+                class="btn btn-primary me-2"
+                data-toggle="tooltip"
+                data-placement="top"
+              >
+                <i class="fa-solid fa-share-from-square"></i>
+              </a>
+              <a
+                href="/urls/edit/<%= url.id %>"
+                class="btn btn-warning me-2"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Edit"
+                ><i class="fa-solid fa-pen-to-square"></i
+              ></a>
+
+              <form
+                action="/urls/delete/<%= url.id  %>"
+                method="post"
+                onsubmit="return confirm('Bạn có chắc chắn')"
+              >
+                <button
+                  class="btn btn-danger"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Delete"
+                >
+                  <i class="fa-regular fa-trash-can"></i>
+                </button>
+              </form>
+            </td>
+            <% }); %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-3">
+      <form action="" method="post" class="form form-control">
+        <label class="label" for="url">Liên kết</label>
+        <input
+          id="url"
+          class="form-control input-sm"
+          type="text"
+          placeholder="Rút gọn liên kết của bạn"
+          name="url"
+        />
+        <label for="password">Mật khẩu</label>
+        <input
+          name="password"
+          class="form-control input-sm"
+          type="text"
+          placeholder="Nhập mật khẩu để mở khóa"
+          name="password"
+        />
+        <div class="mb-3 d-flex">
+          <input type="checkbox" id="protect" class="checkbox" name="protect" />
+          <label for="protect"
+            >Chuyển hướng an toàn(Tránh bị chặn bởi Facebook)</label
+          >
+        </div>
+        <div class="mb-3">
+          <input type="checkbox" id="short-link" name="short-link" />
+          <label for="short-link">Tuỳ chỉnh ID liên kết </label>
+          <input
+            autofocus
+            name="custom-url"
+            class="form-control"
+            type="text"
+            placeholder="https://short.f8team.dev/"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Rút gọn</button>
+      </form>
+    </div>
+  </div>
+</div>

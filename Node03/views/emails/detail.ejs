@@ -1,0 +1,31 @@
+<h1>Detail</h1>
+<form method="post">
+  <label for="email">To</label>
+  <input
+    type="email"
+    name="email"
+    class="form-control"
+    value="<%= email.to  %>"
+  />
+  <label for="subject">Subject</label>
+  <input
+    type="text"
+    name="subject"
+    class="form-control"
+    value="<%= email.subject  %>"
+  />
+  <label for="content">Content</label>
+  <div class="mb-3">
+    <textarea
+      type="text"
+      name="content"
+      class="form-control"
+      rows="15"
+      readonly
+    >
+    <%= email.content  %>
+    </textarea>
+  </div>
+</form>
+
+<a href="/emails" class="btn btn-info">Back</a>

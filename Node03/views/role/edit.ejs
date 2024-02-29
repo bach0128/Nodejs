@@ -1,0 +1,75 @@
+<h1>Edit</h1>
+<form action="" method="post">
+  <div class="mb-3">
+    <label for="name">Tên</label>
+    <input
+      type="text"
+      name="name"
+      class="form-control"
+      placeholder="Tên..."
+      value="<%= role?.name  %>"
+    />
+  </div>
+  <div>
+    <p>Quyền</p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th width="20%">Chức năng</th>
+          <th>Quyền</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Quản lý người dùng</td>
+          <td>
+            <input type="checkbox" name="permissions" value="user_read" <%=
+            isPermission(listPermissions, 'user_read') ? "checked" : "" %> />
+            <label for="user_read">Xem</label>
+          </td>
+          <td>
+            <input type="checkbox" name="permissions" value="user_create" <%=
+            isPermission(listPermissions, 'user_create') ? "checked" : "" %> />
+            <label for="user_create">Thêm</label>
+          </td>
+          <td>
+            <input type="checkbox" name="permissions" value="user_edit"<%=
+            isPermission(listPermissions, 'user_edit') ? "checked" : "" %>/>
+            <label for="user_edit">Sửa</label>
+          </td>
+          <td>
+            <input type="checkbox" name="permissions" value="user_delete" <%=
+            isPermission(listPermissions, 'user_delete') ? "checked" : "" %>/>
+            <label for="user_delete">Xóa</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Quản lý vai trò</td>
+          <td>
+            <input type="checkbox" name="permissions" value="role_read" <%=
+            isPermission(listPermissions, 'role_read') ? "checked" : "" %>/>
+            <label for="role_read">Xem</label>
+          </td>
+          <td>
+            <input type="checkbox" name="permissions" value="role_create" <%=
+            isPermission(listPermissions, 'role_create') ? "checked" : "" %>/>
+            <label for="role_create">Thêm</label>
+          </td>
+          <td>
+            <input type="checkbox" name="permissions" value="role_edit"<%=
+            isPermission(listPermissions, 'role_edit') ? "checked" : "" %>/>
+            <label for="role_edit">Sửa</label>
+          </td>
+          <td>
+            <input type="checkbox" name="permissions" value="role_delete" <%=
+            isPermission(listPermissions, 'role_delete') ? "checked" : "" %>/>
+            <label for="role_delete">Xóa</label>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button class="btn btn-primary">Save</button>
+  <a href="/role" class="btn btn-danger">Cancel</a>
+</form>

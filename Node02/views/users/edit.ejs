@@ -1,0 +1,8 @@
+<h1>Sửa user tại đây</h1>
+<form action="" method="post">
+  <input type="text" name="name" value="<%= user.name %>" />
+  <input type="text" name="email" value="<%= user.email %>" />
+  <input type="text" name="status" value="<%= +user.status === 1 ? "kich hoat" :
+  "chua kich hoat" %>" />
+  <button class="btn btn-success">Lưu</button>
+</form>

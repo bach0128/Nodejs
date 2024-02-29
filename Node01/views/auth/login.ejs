@@ -1,0 +1,16 @@
+<h1>Login</h1>
+<%= msg %>
+<form action="" method="post">
+  <div>
+    <label for="">Email</label>
+    <input type="text" name="email" placeholder="Email..." />
+  </div>
+  <p style="color: brown"><%= getError(errors, "email") %></p>
+  <div>
+    <label for="">Password</label>
+    <input type="password" name="password" placeholder="Password..." />
+  </div>
+  <p style="color: brown"><%= getError(errors, "password") %></p>
+
+  <button>Login</button>
+</form>
