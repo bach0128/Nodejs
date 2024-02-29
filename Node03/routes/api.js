@@ -79,7 +79,7 @@ router.get("/login/github", (req, res) => {
     const emptyResponse = new ServerResponse(req);
     passport.authenticate(
       "github",
-      { scope: ["profile"] },
+      { scope: ["user:email"] },
       (err, user, info) => {
         console.log(err, user, info);
       }
@@ -112,7 +112,6 @@ router.get(
     try {
       const data = req.user;
       console.log(data);
-
       let accessToken, refreshToken;
       if (data) {
         accessToken = createAccessToken({ id: data.id });

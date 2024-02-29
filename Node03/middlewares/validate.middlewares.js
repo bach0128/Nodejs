@@ -2,6 +2,7 @@
 // Validate ---> Rule -->
 // Error
 // Flash
+const flash = require("flash");
 const { object } = require("yup");
 module.exports = (req, res, next) => {
   // định nghĩa hàm validate để sử dụng bên controller
